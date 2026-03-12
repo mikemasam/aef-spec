@@ -1,8 +1,8 @@
-# Execution Framework (EF) — State Machine for AI Agents
+# Agent Execution Framework (AEF) — State Machine for AI Agents
 
-## What is an Execution Framework?
+## What is an Agent Execution Framework?
 
-An Execution Framework (EF) governs how an AI agent:
+An Agent Execution Framework (EF) governs how an AI agent:
 - Maintains awareness of its current situation (state)
 - Responds to inputs (events)
 - Takes appropriate actions
