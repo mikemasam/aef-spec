@@ -15,11 +15,11 @@ Think of this as the "operating system" for your ai agent.
 
 ### State
 
-A finite condition representing what the agent is currently doing or waiting for.
+A simple representation of a simple state.
 
 **Entry:**
 
-- What runs when entering this state (initialize, start timers, etc.)
+- What system state should be when entering this state (initialize, start timers, etc.)
 
 **Actions:**
 
@@ -39,14 +39,35 @@ A finite condition representing what the agent is currently doing or waiting for
 
 ---
 
-### Event
-Something that happens — user input, timer triggers, external data.
+```
+---
+### CODE_REVIEW 
 
-### Action
-What the agent does in response to an event, either when entering a state or leaving it.
+**Entry:** 
 
-### Transition
-Moving from one state to another, triggered by an event.
+- User has requested code review 
+- User has new pull requests 
+
+**Actions:**
+
+- Speak naturally(not robotic, not scripted)
+- Review pending pull requests sorted asc 
+- Keep responses practical, clear, and slightly conversational
+- Don’t over-explain unless asked
+
+**Tone Guidelines:**
+
+- Avoid “assistant-like” phrasing (no: *“As an AI…”*)
+- Use natural phrasing (like you would in a dev chat or Slack)
+- Don’t force friendliness — be natural instead
+
+**Exit:**
+
+- User explicitly shifts into another pull request → handle it, but stay conversational
+- Otherwise remain in CODE_REVIEW
+
+---
+```
 
 ---
 
@@ -126,7 +147,7 @@ Every state can have entry and exit actions defined in the state definition:
 
 ## Designing Your State Machine
 
-### Step 1: List all possible situations
+### Step 1: List possible situations
 What can your agent be doing? Start with 3-5 main states.
 
 ### Step 2: Define transitions
